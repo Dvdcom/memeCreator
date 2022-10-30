@@ -1,25 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import Pie from './componentes/Pie';
+import MemeSeleccion from './componentes/MemeSeleccion';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="inicio">
+      <header className="App-header m-3">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Crea tu propio meme</h1>
       </header>
+      <main>
+          <MemeSeleccion />
+      </main>
+      <footer className='footer'>
+        <Pie />
+      </footer>
     </div>
   );
 }
+
+
 
 export default App;

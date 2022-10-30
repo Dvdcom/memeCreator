@@ -1,9 +1,25 @@
-.App {
-  text-align: center;
+/*body*/
+body{
+  background-color: #282c34;
+  color: white;
 }
 
+.inicio{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.footer{
+  margin-top: auto;
+  text-align: center;
+  color: white;
+  font-size: x-small;
+}
+
+/* de header*/
 .App-logo {
-  height: 40vmin;
+  height: 5vmin;
   pointer-events: none;
 }
 
@@ -15,17 +31,13 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 50px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(10px + 0.5vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +47,33 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/*formulario*/
+
+.frm{
+  margin-top: 50px;
+  padding: 30px;
+  background-color: #383d49;
+  border:0px;
+  box-shadow: -3px -3px 5px #4d5361;
+}
+
+.form-label{
+  color: #61dafb;
+  text-transform: uppercase;
+  
+}
+
+.btn{
+  box-shadow: -3px 3px 5px #101111;
+}
+
+#imagen{
+  width: 70%;
+}
+
+#exampleFormControlInput1{
+  width: 70%;
+  text-align: center;
 }
