@@ -1,8 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Pie from './componentes/Pie';
-import MemeSeleccion from './componentes/MemeSeleccion';
-
+import Formprincipal from './componentes/Formprincipal';
 
 function App() {
   return (
@@ -12,7 +11,7 @@ function App() {
         <h1>Crea tu propio meme</h1>
       </header>
       <main>
-          <MemeSeleccion />
+        <Formprincipal />
       </main>
       <footer className='footer'>
         <Pie />
