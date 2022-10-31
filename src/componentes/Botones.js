@@ -1,8 +1,10 @@
 const Botones = () => {
 
+    /* creo un arreglo para las frases */
     let frases = [];
+    /* creo una variable que selecciona imagendefault */
     const id = document.querySelector('.imagenDefault');
-
+    /* funcion de pasar frase */
     const pasarFrases = () =>{
         let textos = document.querySelectorAll('.b-text');
         textos.forEach((element,index) => {
