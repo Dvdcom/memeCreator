@@ -28,6 +28,7 @@ const Formprincipal = (props) => {
         fetch(urlApi)
             .then(res => res.json())
             .then((json) => {
+                /* console.log(json) */
                 json.forEach(element => {
                     let id = JSON.stringify(element.id);
                     let url = JSON.stringify(element.blank);
