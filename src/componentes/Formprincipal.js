@@ -34,9 +34,10 @@ const Formprincipal = (props) => {
                     let url = JSON.stringify(element.blank);
                     let lines = JSON.stringify(element.lines);
                     let item = document.createElement('li');
+                    item.classList.add("dropdown-item");
                     item.setAttribute('id', `${lines}`);
                     item.setAttribute('onclick', `seleccionar(${url}, ${id})`);
-                    item.innerHTML = `<img src=${element.blank} id=${element.id} style="width:30px;height:30px" class="me-2"></img>${element.name}`
+                    item.innerHTML = `<img src=${element.blank} id=${element.id} style="width:30px;height:30px margin-left:5px" class="me-2"></img>${element.name}`
                     document.querySelector('.dropdown-menu').appendChild(item);
                 });
             })
