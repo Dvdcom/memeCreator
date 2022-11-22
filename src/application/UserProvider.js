@@ -109,6 +109,7 @@ export function UserProvider(props){
         const img = document.querySelector('#imagen');
         if(url !== null){
             img.setAttribute('src',url);
+            img.id = id;
         }
 
         /* y esto que meti aca , por no encontrar otra vuelta al problema con los inputs que tuve mas adelante,

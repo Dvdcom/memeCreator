@@ -9,7 +9,7 @@ const Botones = () => {
     valor de 'id' que es el que tiene la abreviacion del meme seleccionado */
     const valores = useUserValores();
     /* variable que declaro para realizar cambio de src para la imagen */
-    let urlNueva;
+    let urlNueva = "";
 
     /* mi funcion para recorrer las frases y juntarlas
     esto funciona recorriendo todos los elementos inputs, y extrayendo todo lo que los usuarios escribieron, 
@@ -22,6 +22,15 @@ const Botones = () => {
                 element.value = "";
             }
         });
+        /* validacion */
+        if(document.querySelector('.imagenDefault').id === "imagen"){
+            alert('Debe de seleccionar un meme para aplicar');
+            return;
+        }
+        if(frases.length === 0) {
+            alert('Debe de ingresar al menos una frase');
+            return;
+        }
         /* concatenacion es una variable que utilizare para concatenar todas las frases */
         let concatenacion = "";
         /*  recorro mi arreglo creado y en cada elemento transformo los ? en signos (~q) y 
@@ -52,6 +61,15 @@ const Botones = () => {
     }
 
     const descargar = () =>{
+        /* validacion de boton*/
+        if(document.querySelector('.imagenDefault').id === "imagen"){
+            alert('Debe de seleccionar un meme para descargar');
+            return;
+        }
+        if(urlNueva === "") {
+            alert('Debe de generar un meme para descargar');
+            return;
+        }
         /* esta funcion la saque de internet , la declaro y debajo la disparo con la nuevaURL */
         async function downloadImage(imageSrc) {
             const image = await fetch(imageSrc)
