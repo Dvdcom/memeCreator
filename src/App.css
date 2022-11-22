@@ -87,3 +87,10 @@ body{
   align-items: center;
 
 }
+
+.total{
+  background-color: white;
+  font-style: italic;
+  font-size: xx-small;
+  border: 0px;
+}

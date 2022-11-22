@@ -1,34 +1,58 @@
+import { useUserValores } from '../application/UserProvider'
+
 const Botones = () => {
 
     /* creo un arreglo para las frases */
     let frases = [];
     /* creo una variable que selecciona imagendefault */
-    const id = document.querySelector('.imagenDefault');
+    const valores = useUserValores();
+
+    let urlNueva;
     /* funcion de pasar frase */
     const pasarFrases = () =>{
         let textos = document.querySelectorAll('.b-text');
-        textos.forEach((element,index) => {
+        textos.forEach(element => {
             if (element.value !== ""){
                 frases.push(element.value);
                 element.value = "";
             }
         });
+
         let concatenacion = "";
 
         frases.forEach(element => {
-            concatenacion += element + "/";
+            let newText = element.replace(/\s+/g, '_');
+            newText = element.replace('?','~q');
+            concatenacion += newText + "/";
         });
 
         frases = [];
 
-        let urlNueva;
-        urlNueva = `https://api.memegen.link/images/${id.id}/${concatenacion}.png`
+        urlNueva = `https://api.memegen.link/images/${valores.id}/${concatenacion}.png`
         document.querySelector('.imagenDefault').src = urlNueva;
 
+        /*contadores de caracternes en 0*/
+        let contadores = document.querySelectorAll('.total');
+        contadores.forEach(element => {
+            element.textContent= ""
+        });
     }
 
     const descargar = () =>{
-
+        
+        async function downloadImage(imageSrc) {
+            const image = await fetch(imageSrc)
+            const imageBlog = await image.blob()
+            const imageURL = URL.createObjectURL(imageBlog)
+    
+            const link = document.createElement('a')
+            link.href = imageURL
+            link.download = 'memeCreator'
+            document.body.appendChild(link)
+            link.click()
+            document.body.removeChild(link)
+        }
+        downloadImage(urlNueva);
     }
 
     return (

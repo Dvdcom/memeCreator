@@ -1,59 +1,57 @@
+import { useUserValores } from '../application/UserProvider'
 
-const Inputs = (num) =>{
+const Inputs = () =>{
 
-    let numeros = num.children;
+    const valores = useUserValores();
+    let limite = 0;
+    let arr = [];
 
-    let todos = document.querySelectorAll('.box-text');
-    todos.forEach((element,index) => {
-        if(index < numeros){
-            element.classList.remove('d-none');
-        }else{
-            element.classList.add('d-none');
+    const setearLimite = () => {
+
+        switch (valores.lineas) {
+            case 0:
+                limite = 0
+                break;
+            case 2:
+                limite = 15
+                break;
+            case 3:
+                limite = 35
+                break;
+            case 6:
+                limite = 35
+                break;
+            default:
+                limite = 35
+                break;
         }
-    });
+
+    }
+
+    const contarCaracteres = (e) => {
+        
+        let target = e.target
+        let cantidadContada = target.value.length;
+        let total = target.nextSibling;
+        total.innerHTML = cantidadContada + '/' + limite;
+
+    }
 
     return (
-        <div className="grupoTextos">
-            <div className="input-group mb-3 box-text d-none">
-                <span className="input-group-text" id="basic-addon1">Texto 1</span>
-                <input type="text" className="form-control b-text" placeholder="Escribe una frase" aria-label="Username" aria-describedby="basic-addon1" />
-            </div>
-            <div className="input-group mb-3 box-text d-none">
-                <span className="input-group-text" id="basic-addon1">Texto 2</span>
-                <input type="text" className="form-control b-text" placeholder="Escribe una frase" aria-label="Username" aria-describedby="basic-addon1" />
-            </div>
-            <div className="input-group mb-3 box-text d-none">
-                <span className="input-group-text" id="basic-addon1">Texto 3</span>
-                <input type="text" className="form-control b-text" placeholder="Escribe una frase" aria-label="Username" aria-describedby="basic-addon1" />
-            </div>
-            <div className="input-group mb-3 box-text d-none">
-                <span className="input-group-text" id="basic-addon1">Texto 4</span>
-                <input type="text" className="form-control b-text" placeholder="Escribe una frase" aria-label="Username" aria-describedby="basic-addon1" />
-            </div>
-            <div className="input-group mb-3 box-text d-none">
-                <span className="input-group-text" id="basic-addon1">Texto 5</span>
-                <input type="text" className="form-control b-text" placeholder="Escribe una frase" aria-label="Username" aria-describedby="basic-addon1" />
-            </div>
-            <div className="input-group mb-3 box-text d-none">
-                <span className="input-group-text" id="basic-addon1">Texto 6</span>
-                <input type="text" className="form-control b-text" placeholder="Escribe una frase" aria-label="Username" aria-describedby="basic-addon1" />
-            </div>
-            <div className="input-group mb-3 box-text d-none">
-                <span className="input-group-text" id="basic-addon1">Texto 7</span>
-                <input type="text" className="form-control b-text" placeholder="Escribe una frase" aria-label="Username" aria-describedby="basic-addon1" />
-            </div>
-            <div className="input-group mb-3 box-text d-none">
-                <span className="input-group-text" id="basic-addon1">Texto 8</span>
-                <input type="text" className="form-control b-text" placeholder="Escribe una frase" aria-label="Username" aria-describedby="basic-addon1" />
-            </div>
-            <div className="input-group mb-3 box-text d-none">
-                <span className="input-group-text" id="basic-addon1">Texto 9</span>
-                <input type="text" className="form-control b-text" placeholder="Escribe una frase" aria-label="Username" aria-describedby="basic-addon1" />
-            </div>
-            <div className="input-group mb-3 box-text d-none">
-                <span className="input-group-text" id="basic-addon1">Texto 10</span>
-                <input type="text" className="form-control b-text" placeholder="Escribe una frase" aria-label="Username" aria-describedby="basic-addon1" />
-            </div>
+        <div className='grupoTextos inputs'>
+            {(() => {
+                setearLimite();
+                for (let i = 0; i < valores.lineas; i++) {
+                    arr.push(
+                        <div className="input-group input-group-sm mb-3 box-text" key={i}>
+                        <span className="input-group-text" id="inputGroup-sizing-sm">Texto {i+1}</span>
+                            <input type="text" className="form-control b-text contador" onPaste={contarCaracteres} onKeyUp={contarCaracteres} maxLength={limite} placeholder="Escribe una frase" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+                        <span className="input-group-text total" id="inputGroup-sizing-sm"></span>
+                        </div>
+                    );
+                }
+                return arr;
+            })()}
         </div>
         );
 

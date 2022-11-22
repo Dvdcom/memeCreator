@@ -1,22 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import { UserProvider } from './application/UserProvider';
 import Pie from './componentes/Pie';
 import Formprincipal from './componentes/Formprincipal';
+import Cabecera from './componentes/Cabecera';
 
 function App() {
   return (
-    <div className="inicio">
-      <header className="App-header m-3">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Crea tu propio meme</h1>
-      </header>
-      <main>
+    <UserProvider>
+      <div className="inicio">
+        <Cabecera />
         <Formprincipal />
-      </main>
-      <footer className='footer'>
         <Pie />
-      </footer>
-    </div>
+      </div>
+    </UserProvider>
   );
 }
 
