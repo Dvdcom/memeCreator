@@ -4,6 +4,8 @@ import Pie from './componentes/Pie';
 import Formprincipal from './componentes/Formprincipal';
 import Cabecera from './componentes/Cabecera';
 
+/* Lanzo app retornando un provider , el mismo contiene alguna logica y variables que se comparten a sus hijos */
+
 function App() {
   return (
     <UserProvider>
@@ -15,7 +17,5 @@ function App() {
     </UserProvider>
   );
 }
-
-
 
 export default App;

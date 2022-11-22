@@ -1,11 +1,20 @@
+/* USO DEL PROVIDER, vuelvo a importar 1 de mis funciones que declare anteriormente */
 import { useUserValores } from '../application/UserProvider'
 
 const Inputs = () =>{
 
+    /* traigo nuevamente la informacion del provider y la pego en valores , 
+    recordando que este esta guardado como un objeto por lo que para usarlo 
+    puedo llamarlo de manera muy simple tanto como valore.lineas , o valores.id*/
     const valores = useUserValores();
+
+    /* inicio estas variables que mas adelante se utilizan */
     let limite = 0;
     let arr = [];
 
+    /* esta funcion le da un limite inicial 
+    según cuantos inputs sean los que puede tener el meme,
+    informacion pasada desde el provider con valores.lineas */
     const setearLimite = () => {
 
         switch (valores.lineas) {
@@ -13,21 +22,25 @@ const Inputs = () =>{
                 limite = 0
                 break;
             case 2:
-                limite = 15
+                limite = 20
                 break;
             case 3:
                 limite = 35
                 break;
             case 6:
-                limite = 35
+                limite = 45
                 break;
             default:
-                limite = 35
+                limite = 45
                 break;
         }
 
     }
 
+    /* esta funcion realiza el conteo de los caracteres, 
+    utilizo la capturacion del evento ya que de esta forma 
+    puedo saber que input esta cambiando , sin esto , 
+    solo daria como resultado que le contaria solo al primer input los demas no realizarian el conteo */
     const contarCaracteres = (e) => {
         
         let target = e.target
@@ -36,7 +49,9 @@ const Inputs = () =>{
         total.innerHTML = cantidadContada + '/' + limite;
 
     }
-
+    /* mi retorno del componente va a ser mediante un for construir todos los 
+    div con los inputs correspondiente que debe de tener , 
+    una forma mas practica que la de escribir todos los inputs, ocultarlos y mostrarlos (que es como lo tenia antes). */
     return (
         <div className='grupoTextos inputs'>
             {(() => {
@@ -56,5 +71,8 @@ const Inputs = () =>{
         );
 
 }
-
+/* NOTA : nuevamente dentro del return devuelvo un bucle , al parecer no puede tirarse un for directamente , 
+se debe de realizar a traves de una funcion, pero no basta solo con eso , la funcion , 
+pushea todos los div al arreglo previamente declarado y al finalizar dicha funcion retorna todo el arreglo */
+/* NOTA 2 : respecto al bucle no importa si es un for o un map , en algun momento te obliga a ponerle una KEY al div contenedor, a tener en cuenta. */
 export default Inputs;
