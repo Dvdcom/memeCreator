@@ -22,17 +22,28 @@ const Inputs = () =>{
                 limite = 0
                 break;
             case 2:
-                limite = 20
-                break;
-            case 3:
                 limite = 35
                 break;
-            case 6:
+            case 3:
                 limite = 45
+                break;
+            case 6:
+                limite = 60
                 break;
             default:
-                limite = 45
+                limite = 60
                 break;
+        }
+
+        const contenedorInputs = document.querySelector('.inputs');
+        if (contenedorInputs !== null){
+            if(contenedorInputs.children.length > 0 ){
+                const inputs = document.querySelectorAll('.contador');
+                inputs.forEach(element => {
+                    element.value = "";
+                    element.nextSibling.innerHTML = "";
+                });
+            }
         }
 
     }
