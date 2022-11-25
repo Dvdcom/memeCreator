@@ -34,7 +34,12 @@ const Inputs = () =>{
                 limite = 60
                 break;
         }
-
+        
+        /* esta seccion de la funcion no tiene que ver con el seteo de limites : 
+            tiene que ver con la verificacion de los inputs creados, 
+            esto soluciona un problema que me presentaron los inputs 
+            al crearlos y es que los mismos NO se borraban cuando se creaban, 
+            es decir aparecia el mismo input creado con la informacion anteriormente cargada*/
         const contenedorInputs = document.querySelector('.inputs');
         if (contenedorInputs !== null){
             if(contenedorInputs.children.length > 0 ){
