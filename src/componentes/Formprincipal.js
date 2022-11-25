@@ -1,5 +1,5 @@
 /* USO DEL PROVIDER, importo 2 de mis funciones que declare anteriormente */
-import { useUserListaMemes,useUserAsignarValores } from '../application/UserProvider'
+import { useUserListaMemes,useUserAsignarValores,useUserValores } from '../application/UserProvider'
 /* este componente a su ves tiene componentes hijos que componente su cuerpo tambien los importo*/
 import Inputs from "./Inputs";
 import Botones from "./Botones";
@@ -9,8 +9,13 @@ const Formprincipal = () => {
 
     /* inicio trayendome las funciones declaradas en el provider , 
     estas vienen con la informacion que generan cuando se renderiza por primera ves todo*/
+
     const listaMemes = useUserListaMemes();
     /* para listaMemes , me trae el json que el fetch me tiro la primera ves */
+
+    const valores = useUserValores();
+    /* en valores voy a guardar los parametros que se setearon con la funcion asignarValores */
+
     const seleccionar = useUserAsignarValores();
     /* para seleccionar, simplemente hago la relacion de 
     la constante para que se pueda usar la funcion asignarValores escrita en el userPROVIDER */
@@ -33,7 +38,7 @@ const Formprincipal = () => {
                                 dentro de cada li le voy asignando, id , onclick , src, para que esa informacion pegada en las etiquetas la pueda usar cuando el usuario realice la seleeccion */}
                                 {listaMemes.map((element, index) => (
                                     <li key={index} className="dropdown-item" id={element.lines} onClick={seleccionar}>
-                                        <img src={element.blank} id={element.id} style={{ width: "30px", height: "30px" }} className="me-2" alt={"img-" + element.id} />
+                                        <img src={element.blank} id={element.id} style={{ width: "30px", height: "30px" }} className="me-2 imge" alt={"img-" + element.id} />
                                         {element.name}
                                     </li>
                                 ))}
@@ -41,7 +46,9 @@ const Formprincipal = () => {
                         </div>
                     </div>
                     <figure className="figure">
-                        <img src="https://thumbs.dreamstime.com/b/no-thumbnail-image-placeholder-forums-blogs-websites-148010362.jpg" className="mt-3 imagenDefault" id="imagen" alt="img-default"></img>
+                        {/* importante : aca utilizo valores, al hacerse la primera renderizacion va a tomar los primeros valores parametrizados
+                        esto cambia y se vuelve a renderizar cuando se utiliza la funcion asignarValores  */}
+                        <img src={valores.src} className="mt-3 imagenDefault" id={valores.id} alt="img-default"></img>
                     </figure>
                     <Inputs></Inputs>
                     <Botones />
