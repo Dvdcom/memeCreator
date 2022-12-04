@@ -57,11 +57,19 @@ body{
   background-color: #383d49;
   border:0px;
   box-shadow: -3px -3px 5px #4d5361;
+  box-sizing:border-box;
 }
 
 .form-label{
   color: #61dafb;
   text-transform: uppercase;
+  
+}
+
+#list{
+  max-width: 90%;
+  max-height:60vh;
+  overflow-y: scroll;
   
 }
 
@@ -71,6 +79,7 @@ body{
 
 .imagenDefault{
   width: 70%;
+
 }
 
 #exampleFormControlInput1{

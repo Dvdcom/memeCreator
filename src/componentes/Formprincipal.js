@@ -23,13 +23,13 @@ const Formprincipal = () => {
     /* retorno un formulario */
     return (
         <div className="text-center d-flex justify-content-center">
-            <div className="col col-lg-6 col-md-6 col-sm-8 col-xs-8">
+            <div className="col-11 col-lg-8 col-md-8 col-sm-8">
                 <form
                     onSubmit={ev => { ev.preventDefault(); }}
-                    className="form-control container frm">
+                    className="form-control frm">
 
                     <div className="mb-3">
-                        <div className="dropdown-center">
+                        <div className="dropdown-center listadrop">
                             <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Seleccione Meme
                             </button>

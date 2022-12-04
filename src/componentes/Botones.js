@@ -14,20 +14,20 @@ const Botones = () => {
     /* mi funcion para recorrer las frases y juntarlas
     esto funciona recorriendo todos los elementos inputs, y extrayendo todo lo que los usuarios escribieron, 
     los junta y los guarda en un arreglo, en el arreglo de frases */
-    const pasarFrases = () =>{
+    const pasarFrases = () => {
         let textos = document.querySelectorAll('.b-text');
         textos.forEach(element => {
-            if (element.value !== ""){
+            if (element.value !== "") {
                 frases.push(element.value);
                 element.value = "";
             }
         });
         /* validacion */
-        if(document.querySelector('.imagenDefault').id === "imagen"){
+        if (document.querySelector('.imagenDefault').id === "imagen") {
             alert('Debe de seleccionar un meme para aplicar');
             return;
         }
-        if(frases.length === 0) {
+        if (frases.length === 0) {
             alert('Debe de ingresar al menos una frase');
             return;
         }
@@ -37,36 +37,94 @@ const Botones = () => {
         cada espacion vacio en guiones bajo, esto es asi porque es informacion para la api */
         frases.forEach(element => {
             let newText = element.replace(/\s+/g, '_');
-            newText = element.replace('?','~q');
+            newText = element.replace('?', '~q');
             concatenacion += newText + "/";
         });
         /* una ves hecho la concatenacion vuelvo a poner vacia el array de frases */
         frases = [];
         /* 
             urlNueva : la ventaja de usar esta api, te da la opcion de poner todas las frases 
-            en la misma url y te entrega la imagen ya hecha con las frases que customizaste , 
+            en la misma url y te entrega la imagen ya hecha con las frases que customisaste , 
             sin necesidad de estar cambiando estilos, todo lo da la api con la url. 
             (para esto identifico el meme que quiero con el id y con las frases)
         */
-        urlNueva = `https://api.memegen.link/images/${valores.id}/${concatenacion}.png`
+
+        /* Verificacion de ajustes : verifico que los usuarios hayan seleccionado mas ajustes */
+        let ajustedeEstilo = false;
+        let ajustedeTamaños = false;
+        let fuente = "";
+        let width = 0;
+        let height = 0;
+
+        /* verifico que los inputs se hayan modificado*/
+        const checks = document.querySelectorAll('.form-check-input');
+        const inputsTamaños = document.querySelectorAll('.inputAjuste');
+
+        checks.forEach(element => {
+            if(element.checked){
+                ajustedeEstilo = true ;
+                fuente = element.id;
+            }
+        });
+        inputsTamaños.forEach(element => {
+            if(element.value !== 0){
+                ajustedeTamaños = true ;
+            }
+        });
+
+        if (ajustedeEstilo && ajustedeTamaños){
+            width = document.getElementById('inputwidth').value;
+            height = document.getElementById('inputheigth').value;
+            urlNueva = `https://api.memegen.link/images/${valores.id}/${concatenacion}.png?font=${fuente}&height=${height}&width=${width}`
+        }else if(ajustedeEstilo && !ajustedeTamaños){
+            urlNueva = `https://api.memegen.link/images/${valores.id}/${concatenacion}.png?font=${fuente}`
+        }else if(!ajustedeEstilo && ajustedeTamaños){
+            width = document.getElementById('inputwidth').value;
+            height = document.getElementById('inputheigth').value;
+            urlNueva = `https://api.memegen.link/images/${valores.id}/${concatenacion}.png?height=${height}&width=${width}`
+        }else{
+            urlNueva = `https://api.memegen.link/images/${valores.id}/${concatenacion}.png`
+        }
+
         /* una ves que tengo concatenado todo solo selecciono 
         la imagen default que tengo en el navegador y le cambio el SRC  */
         document.querySelector('.imagenDefault').src = urlNueva;
 
+        /* DEFAULTEO */
+        ajustedeEstilo = false;
+        ajustedeTamaños = false;
+        fuente = "";
+        width = 0;
+        height = 0;
+
+        checks.forEach(element => {
+            if(element.checked){
+                element.checked = false;
+            }
+        });
+
+        inputsTamaños.forEach(element => {
+            element.value = '';
+        });
+
+        document.querySelector('.colapsador').setAttribute('aria-expanded','false');
+        document.querySelector('.colapsador').classList.add('collapsed');
+        document.getElementById('collapseExample').classList.remove("show")
+        /* document.getElementById('collapseExample').classList.add('collapse'); */
         /*coloco todos los contadores en 0*/
         let contadores = document.querySelectorAll('.total');
         contadores.forEach(element => {
-            element.textContent= ""
+            element.textContent = ""
         });
     }
 
-    const descargar = () =>{
+    const descargar = () => {
         /* validacion de boton*/
-        if(document.querySelector('.imagenDefault').id === "imagen"){
+        if (document.querySelector('.imagenDefault').id === "imagen") {
             alert('Debe de seleccionar un meme para descargar');
             return;
         }
-        if(urlNueva === "") {
+        if (urlNueva === "") {
             alert('Debe de generar un meme para descargar');
             return;
         }
@@ -75,7 +133,7 @@ const Botones = () => {
             const image = await fetch(imageSrc)
             const imageBlog = await image.blob()
             const imageURL = URL.createObjectURL(imageBlog)
-    
+
             const link = document.createElement('a')
             link.href = imageURL
             link.download = 'memeCreator'
@@ -89,9 +147,9 @@ const Botones = () => {
     /* retorno los botones con sus respectivas funciones*/
 
     return (
-        <div>
-        <button type="button" onClick={pasarFrases} className="btn btn-info btn-lg me-3">Aplicar</button>
-        <button type="button" onClick={descargar} className="btn btn-info btn-lg">Descargar</button>
+        <div className='mt-3'>
+            <button type="button" onClick={pasarFrases} className="btn btn-info btn-lg me-3">Aplicar</button>
+            <button type="button" onClick={descargar} className="btn btn-info btn-lg">Descargar</button>
         </div>
 
     )
