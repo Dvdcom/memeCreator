@@ -17,6 +17,16 @@ body{
   font-size: x-small;
 }
 
+/*modal*/
+.modalcontenedor{
+    position:absolute;
+    top:5px;
+    right: 10px;
+    text-align: end;
+    padding: 10px;
+    font-style: italic;
+}
+
 /* de header*/
 .App-logo {
   height: 5vmin;

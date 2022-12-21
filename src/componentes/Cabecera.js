@@ -4,8 +4,8 @@ const Cabecera = () =>{
 
     return(
         <div className="App-header m-3">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1>Crea tu propio meme</h1>
+        <img src={logo} className="App-logo" alt="logo" />
+        <h1>Crea tu propio meme</h1>
         </div>
     );
 }
