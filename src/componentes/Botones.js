@@ -60,18 +60,21 @@ const Botones = () => {
         const checks = document.querySelectorAll('.form-check-input');
         const inputsTamaños = document.querySelectorAll('.inputAjuste');
 
+        /* recorro cheks para verificar  */
         checks.forEach(element => {
             if(element.checked){
                 ajustedeEstilo = true ;
                 fuente = element.id;
             }
         });
+        /* recorro inputs para verificar  */
         inputsTamaños.forEach(element => {
             if(element.value !== 0){
                 ajustedeTamaños = true ;
             }
         });
 
+        /* segun las condiciones seteo las variables */
         if (ajustedeEstilo && ajustedeTamaños){
             width = document.getElementById('inputwidth').value;
             height = document.getElementById('inputheigth').value;
@@ -90,7 +93,7 @@ const Botones = () => {
         la imagen default que tengo en el navegador y le cambio el SRC  */
         document.querySelector('.imagenDefault').src = urlNueva;
 
-        /* DEFAULTEO */
+        /* DEFAULTEO: pongo las variables a sus estados iniciales */
         ajustedeEstilo = false;
         ajustedeTamaños = false;
         fuente = "";
@@ -110,7 +113,7 @@ const Botones = () => {
         document.querySelector('.colapsador').setAttribute('aria-expanded','false');
         document.querySelector('.colapsador').classList.add('collapsed');
         document.getElementById('collapseExample').classList.remove("show")
-        /* document.getElementById('collapseExample').classList.add('collapse'); */
+
         /*coloco todos los contadores en 0*/
         let contadores = document.querySelectorAll('.total');
         contadores.forEach(element => {

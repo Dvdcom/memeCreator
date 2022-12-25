@@ -8,8 +8,7 @@ import Botones from "./Botones";
 const Formprincipal = () => {
 
     /* inicio trayendome las funciones declaradas en el provider , 
-    estas vienen con la informacion que generan cuando se renderiza por primera ves todo*/
-
+    estas vienen con la informacion que generan cuando se renderiza por primera ves todo */
     const listaMemes = useUserListaMemes();
     /* para listaMemes , me trae el json que el fetch me tiro la primera ves */
 
