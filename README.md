@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+# <img src="https://i.postimg.cc/P5Yy0KFp/editor.png" alt="img-calc" width="32"/> MEME CREATOR
+Este proyecto se realizo con el fin educativo de aprender mas sobre React.js , ya que en el mismo se aplican muchos conceptos de esta biblioteca.
+Los conceptos mas aplicados son useState, useContext, useEffect, props y tambien el uso del Provider.
+El objetivo es crear una editor de memes que entregue imagenes con diferentes estilos y tamaños.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Se evito la configuracion de color en las letras ya que la finalidad de la app es aprobechar 100% la api y los beneficios que esta trae , ya tambien trae su propio css para posicionar los textos dentro de las imagenes.
 
-## Available Scripts
+---------------------------------------
 
-In the project directory, you can run:
+### <img src="https://i.postimg.cc/LXJX7gQ5/pc.png" alt="img-pc" width="24"/> PREVISUALIZACION
 
-### `npm start`
+![](https://i.postimg.cc/y8gtxFps/editor-memes.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---------------------------------------
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### <img src="https://i.postimg.cc/Dw5wwPtm/cubo.png" alt="img-cubos" width="24"/> ESTRUCTURA BASICA
+Este proyecto fue iniciado con [Create React App](https://github.com/facebook/create-react-app).
 
-### `npm test`
+### <img src="https://i.postimg.cc/9MsMjXsp/install.png" alt="img-install" width="24"/> INSTALACION
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clona el repostorio en tu equipo con este [enlace](https://github.com/Dvdcom/calculadora-react.git "enlace")
+2. Instala las dependencias con el comando `npm i`
 
-### `npm run build`
+*el proyecto quedara listo para ser ejecutado.*
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### <img src="https://i.postimg.cc/QxQMR3mQ/play.png" alt="img-play" width="24"/> PASOS PARA SU EJECUCION
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+en consola ingresa el siguiente comando 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`npm start`
 
-### `npm run eject`
+Esto ejecutara la aplicación en el modo de desarrollo.
+En caso de que no se abra de forma automatica , abra http://localhost:3000 para verlo en su navegador.
+La página se volverá a cargar cuando realice cambios.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Puede visualizar el deploy de esta app en el siguiente [URL](https://calculadora-react-22803.netlify.app/).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### <img src="https://i.postimg.cc/vmBHg6sh/clip.png" alt="img-clip" width="24"/> DEPENDENCIAS
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Este proyecto trabaja con las siguientes dependencias:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```javascript
+    "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@fortawesome/free-regular-svg-icons": "^6.2.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.7.1",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+    }
+```
+#### <img src="https://i.postimg.cc/jqJ24NJk/colaboracion.png" alt="img-colaboracion" width="24"/> CONTRIBUCION
 
-## Learn More
+Este proyecto es a modo educativo si cree necesario algunos arreglos u optimizar la logica y desea de aportar en proyecto , siga estos pasos:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Haz Fork del repositorio.
+2. Antes de realizar modificaciones agregar la URL del repositorio original del proyecto
+`$ git remote add upstream https://github.com/User/RepoOriginal(Forkeado)`
+3. Comprueba
+`$ git remote -v`
+4. Antes de empezar a trabajar, obtener los últimos cambios del Repo Original:
+`$ git pull -r upstream nombreRamaAcontribuir`
+5. Crea una rama
+`$ git checkout -b feature-nombre-rama`
+6. Realizar todos los cambios que se desea hacer al proyecto
+7. Agregar los archivos y haz un commit
+8. Después de realizar el commit hacer el push hacia nuestro repositorio indicando la rama que hemos creado.
+`$ git push origin feature-nombre-rama`
+9. Haz un Pull Request:
+	* Hacer click en *Compare & Pull Request*
+	* Escribir cambios del Pull Request.
+	* Si todo está bien, enviar con el botón *Send Pull Request.*
+	* Esperar a que el autor del repositorio lo revise, acepte y mezcle en la rama correspondiente.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### <img src="https://i.postimg.cc/pXbTGTfV/licencia.png" alt="img-licencia" width="24"/> LICENCIA
+Tipo de licencia de este proyecto [MIT](https://choosealicense.com/licenses/mit/)
 
-### Code Splitting
+### <img src="https://i.postimg.cc/VkzNwVZ3/person.png" alt="img-licencia" width="24"/> AUTOR
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<img src="https://i.postimg.cc/XvmM92Lj/foto-perfil-arg.png" alt="img-perfil" width="100"/>
 
-### Analyzing the Bundle Size
+**DAVID GUTIERREZ**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- linkedin : https://www.linkedin.com/in/davgutierrez
+- Instagram : https://www.instagram.com/davgutierrez
+- twitter : https://twitter.com/DavidEGutierrez
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---------------------------------------
