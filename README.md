@@ -55,7 +55,7 @@ Este proyecto trabaja con las siguientes dependencias:
     "web-vitals": "^2.1.4"
     }
 ```
-#### <img src="https://i.postimg.cc/jqJ24NJk/colaboracion.png" alt="img-colaboracion" width="24"/> CONTRIBUCION
+### <img src="https://i.postimg.cc/jqJ24NJk/colaboracion.png" alt="img-colaboracion" width="24"/> CONTRIBUCION
 
 Este proyecto es a modo educativo si cree necesario algunos arreglos u optimizar la logica y desea de aportar en proyecto , siga estos pasos:
 
